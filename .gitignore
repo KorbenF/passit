@@ -22,12 +22,16 @@ pnpm-debug.log*
 # Test coverage
 coverage/
 
+# Cloudflare Wrangler local state
+.wrangler/
+
 # OS files
 .DS_Store
 Thumbs.db
 
 # AI agents & local IDE state
 .agents/
+.taste-skill/
 .idea/
 .vscode/
 *.local
