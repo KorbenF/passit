@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "wrangler dev",
     "lint": "eslint . --max-warnings 0",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -19,15 +19,21 @@
     "check:dist": "node scripts/not-configured.mjs check:dist",
     "test:e2e": "node scripts/not-configured.mjs test:e2e",
     "test:security": "node scripts/not-configured.mjs test:security",
-    "lhci": "node scripts/not-configured.mjs lhci"
+    "lhci": "node scripts/not-configured.mjs lhci",
+    "postbuild": "node scripts/generate-headers.ts",
+    "deploy:preview": "wrangler versions upload",
+    "deploy:staging": "wrangler deploy --env staging",
+    "deploy:prod": "wrangler deploy --env production"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "14.3.4",
     "astro": "7.3.8"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
     "@eslint-community/eslint-plugin-eslint-comments": "4.8.1",
     "@eslint/js": "10.0.1",
+    "@types/node": "24.19.2",
     "@vitest/coverage-v8": "5.0.4",
     "eslint": "10.12.0",
     "eslint-plugin-astro": "3.2.1",
@@ -36,6 +42,7 @@
     "prettier-plugin-astro": "1.1.1",
     "typescript": "6.0.3",
     "typescript-eslint": "8.71.2",
-    "vitest": "5.0.4"
+    "vitest": "5.0.4",
+    "wrangler": "4.151.0"
   }
 }
