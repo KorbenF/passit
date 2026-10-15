@@ -1,0 +1,22 @@
+# CODEOWNERS — Critical configuration and governance files require code owner review
+# See AGENTS.md section 9 and PLAN.md section 504
+
+* @KorbenF
+
+lighthouserc.* @KorbenF
+eslint.config.* @KorbenF
+tsconfig.json @KorbenF
+astro.config.* @KorbenF
+wrangler.jsonc @KorbenF
+vitest.config.* @KorbenF
+playwright.config.* @KorbenF
+package.json @KorbenF
+pnpm-workspace.yaml @KorbenF
+.npmrc @KorbenF
+renovate.json @KorbenF
+.github/** @KorbenF
+scripts/** @KorbenF
+public/_headers @KorbenF
+src/lib/server/http.ts @KorbenF
+PLAN.md @KorbenF
+AGENTS.md @KorbenF

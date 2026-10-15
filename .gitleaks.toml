@@ -1,0 +1,14 @@
+title = "Passit gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Global allowlist for build artifacts and external skill assets"
+paths = [
+  '''^\.pnpm-store''',
+  '''^node_modules''',
+  '''^dist''',
+  '''^pnpm-lock\.yaml$''',
+  '''^\.agents/skills''',
+]
