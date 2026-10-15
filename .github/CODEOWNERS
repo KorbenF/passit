@@ -1,0 +1,22 @@
+# CODEOWNERS — Critical configuration and governance files require code owner review
+# See AGENTS.md section 9 and PLAN.md section 504
+
+* @ferko
+
+lighthouserc.* @ferko
+eslint.config.* @ferko
+tsconfig.json @ferko
+astro.config.* @ferko
+wrangler.jsonc @ferko
+vitest.config.* @ferko
+playwright.config.* @ferko
+package.json @ferko
+pnpm-workspace.yaml @ferko
+.npmrc @ferko
+renovate.json @ferko
+.github/** @ferko
+scripts/** @ferko
+public/_headers @ferko
+src/lib/server/http.ts @ferko
+PLAN.md @ferko
+AGENTS.md @ferko
