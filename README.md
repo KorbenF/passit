@@ -34,6 +34,50 @@ Webová prezentácia a dopytový systém pre distribútora prémiových taliansk
 | Lighthouse CI               | `pnpm lhci`                         |
 | Audit zraniteľností         | `pnpm audit --audit-level=high`     |
 
+## Cloudflare Runbook
+
+### 1. Lokálny vývoj a náhľad
+
+Lokálny prod-like náhľad beží cez `wrangler dev` simulujúci Cloudflare Workers runtime a statické assety:
+
+```bash
+# Skopírujte šablónu premenných (necommituje sa!)
+cp .dev.vars.example .dev.vars
+
+# Spustenie prod-like buildu a náhľadu
+pnpm build && pnpm preview
+```
+
+### 2. Infraštruktúra a prístupy (vykonáva vlastník)
+
+Pre nasadzovanie cez CI je potrebné v GitHub repozitári (`Settings -> Secrets and variables -> Actions`) nastaviť secrets:
+
+- `CLOUDFLARE_API_TOKEN`: Token s oprávnením `Workers:Edit` pre účet.
+- `CLOUDFLARE_ACCOUNT_ID`: ID vášho Cloudflare účtu.
+
+Pre staging a production prostredia sú v GitHube vytvorené Environments (`staging`, `production`).
+
+### 3. Nastavenie Cloudflare Access pre Staging
+
+Staging doména (`staging.passit.sk`) musí byť chránená cez Cloudflare Zero Trust / Access:
+
+1. V Cloudflare Zero Trust prejdite do `Access -> Applications -> Add an application -> Self-hosted`.
+2. Zadajte názov `Passit Staging` a doménu `staging.passit.sk`.
+3. Nastavte pravidlo (Policy), napr. povoliť prístup iba e-mailom z vášho tímu cez jednorazový PIN kód (One-time PIN).
+4. Pre CI behy (napr. E2E testy proti stagingu) vytvorte Service Token a vložte `CF-Access-Client-Id` a `CF-Access-Client-Secret` do GitHub Secrets.
+
+### 4. Rollback (Návrat na predchádzajúcu verziu)
+
+Ak sa po nasadení vyskytne problém, okamžitý rollback je možné vykonať cez Wrangler alebo Cloudflare Dashboard:
+
+```bash
+# Zoznam nasadení
+pnpm wrangler deployments list --env production
+
+# Okamžitý rollback na predchádzajúcu verziu
+pnpm wrangler rollback <deployment-id> --env production
+```
+
 ## Pravidlá a architektúra
 
 - Záväzné pravidlá pre vývoj a AI agentov: [`AGENTS.md`](./AGENTS.md)
