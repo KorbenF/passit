@@ -1,31 +1,43 @@
 ---
-// 404 Not Found Page
+import PageLayout from '../layouts/PageLayout.astro';
 ---
 
-<!doctype html>
-<html lang="sk">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stránka sa nenašla (404) — Passit</title>
-  </head>
-  <body>
-    <main>
-      <h1>404 — Stránka sa nenašla</h1>
-      <p>Požadovaná stránka neexistuje alebo bola presunutá.</p>
-      <nav aria-label="Navigácia po chybe">
-        <ul>
-          <li>
-            <a href="/">Domovská stránka</a>
-          </li>
-          <li>
-            <a href="/sortiment">Sortiment</a>
-          </li>
-          <li>
-            <a href="/kontakt">Kontakt</a>
-          </li>
-        </ul>
-      </nav>
-    </main>
-  </body>
-</html>
+<PageLayout
+  title="Stránka sa nenašla (404) — Passit"
+  description="Požadovaná stránka neexistuje alebo bola presunutá."
+>
+  <section class="border-b border-[#E5E5E8] bg-[#F8F8FA] py-24 sm:py-32">
+    <div class="mx-auto max-w-[1440px] px-6 text-center md:px-16">
+      <p class="font-mono text-6xl font-bold tracking-tight uppercase text-[#D2232A] sm:text-7xl">
+        404
+      </p>
+      <h1 class="mt-4 font-headline text-3xl font-bold tracking-tight uppercase text-[#121314] sm:text-4xl">
+        Stránka sa nenašla
+      </h1>
+      <p class="mx-auto mt-4 max-w-lg font-body text-base text-[#6A6D72]">
+        Ospravedlňujeme sa, ale stránka, ktorú hľadáte, neexistuje, bola
+        odstránená alebo presunutá na inú adresu.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <a
+          href="/"
+          class="inline-flex items-center justify-center bg-[#D2232A] px-6 py-4 font-headline text-xs font-bold tracking-[0.08em] uppercase text-[#FFFFFF] no-underline transition-colors hover:bg-[#b51d23]"
+        >
+          Späť na domovskú stránku
+        </a>
+        <a
+          href="/#sortiment"
+          class="inline-flex items-center justify-center border border-[#121314] bg-transparent px-6 py-4 font-headline text-xs font-semibold tracking-[0.08em] uppercase text-[#121314] no-underline transition-colors hover:bg-[#121314] hover:text-[#F8F8FA]"
+        >
+          Prejsť na sortiment
+        </a>
+        <a
+          href="/#alokacia"
+          class="inline-flex items-center justify-center border border-[#E5E5E8] bg-[#FFFFFF] px-6 py-4 font-headline text-xs font-semibold tracking-[0.08em] uppercase text-[#6A6D72] no-underline transition-colors hover:text-[#121314]"
+        >
+          Kontaktovať nás
+        </a>
+      </div>
+    </div>
+  </section>
+</PageLayout>

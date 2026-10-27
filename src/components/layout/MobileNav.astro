@@ -1,0 +1,109 @@
+---
+import { siteConfig } from '../../lib/site';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+
+const navLinks = [
+  { href: '/', label: 'Domov' },
+  { href: '/#sortiment', label: 'Katalóg' },
+  { href: '/#partneri', label: 'Partneri' },
+  { href: '/#logistika', label: 'O nás' },
+  { href: '/#partnerstvo', label: 'Kontakt' },
+];
+---
+
+<!-- Backdrop pre mobilné menu -->
+<div
+  id="mobile-nav-backdrop"
+  class="fixed inset-0 z-40 hidden bg-[#121314]/60 transition-opacity"
+  tabindex="-1"
+></div>
+
+<!-- Mobilný šuplík (drawer) -->
+<div
+  id="mobile-nav-drawer"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Mobilná navigácia"
+  class="fixed inset-y-0 right-0 z-50 hidden flex h-full w-full max-w-xs flex-col justify-between overflow-y-auto border-l border-[#E5E5E8] bg-[#F8F8FA] p-6 transition-transform"
+>
+  <div>
+    <!-- Horná lišta: názov a tlačidlo zatvorenia -->
+    <div class="flex items-center justify-between border-b border-[#E5E5E8] pb-4">
+      <span class="font-headline text-xl font-bold tracking-tight uppercase text-[#D2232A]">
+        {siteConfig.name}
+      </span>
+      <button
+        id="mobile-nav-close"
+        type="button"
+        aria-label="Zatvoriť navigáciu"
+        class="inline-flex min-h-[44px] min-w-[44px] items-center justify-center border border-[#E5E5E8] bg-[#FFFFFF] text-[#121314] hover:border-[#121314] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+      >
+        <svg
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          ></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Odkazy -->
+    <nav aria-label="Mobilné navigačné odkazy" class="mt-6">
+      <ul class="space-y-2">
+        {navLinks.map((link) => {
+          const isActive = link.href === '/' && currentPath === '/';
+          return (
+            <li>
+              <a
+                href={link.href}
+                aria-current={isActive ? 'page' : undefined}
+                class:list={[
+                  'block border border-transparent px-4 py-3 font-headline text-xs font-semibold tracking-[0.12em] uppercase transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus',
+                  isActive
+                    ? 'border-[#E5E5E8] bg-[#FFFFFF] text-[#D2232A]'
+                    : 'text-[#121314] hover:bg-[#FFFFFF]',
+                ]}
+              >
+                {link.label}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Spodná časť so skratkou na dopyt a kontakt -->
+  <div class="border-t border-[#E5E5E8] pt-6">
+    <a
+      href="/#alokacia"
+      class="flex w-full items-center justify-center bg-[#D2232A] px-6 py-4 font-headline text-xs font-bold tracking-[0.12em] uppercase text-[#FFFFFF] no-underline transition-colors hover:bg-[#b51d23]"
+    >
+      ZÍSKAŤ CENNÍK
+    </a>
+    <div class="mt-4 text-center font-mono text-xs text-[#6A6D72]">
+      <p class="font-medium">Priamy B2B kontakt:</p>
+      <a
+        href={`mailto:${siteConfig.email}`}
+        class="mt-1 inline-block font-semibold text-[#121314] hover:text-[#D2232A]"
+      >
+        {siteConfig.email}
+      </a>
+    </div>
+  </div>
+</div>
+
+<script src="./mobile-nav.ts"></script>

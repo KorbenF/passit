@@ -1,0 +1,30 @@
+---
+interface Props {
+  variant?: 'info' | 'success' | 'warning' | 'error';
+  title?: string;
+  class?: string;
+}
+
+const { variant = 'info', title, class: className = '' } = Astro.props;
+
+const variantStyles = {
+  info: 'bg-cream-subtle border-border-ui text-ink',
+  success: 'bg-olive-light border-olive text-olive-dark',
+  warning: 'bg-cream-subtle border-border-ui text-ink',
+  error: 'bg-tomato-light border-tomato text-tomato-dark',
+} as const;
+---
+
+<div
+  role="alert"
+  class:list={[
+    'rounded-lg border p-4 text-sm',
+    variantStyles[variant],
+    className,
+  ]}
+>
+  {title && <p class="font-semibold">{title}</p>}
+  <div class:list={[title ? 'mt-1' : '']}>
+    <slot />
+  </div>
+</div>

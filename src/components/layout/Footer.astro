@@ -1,0 +1,72 @@
+---
+import { siteConfig } from '../../lib/site';
+---
+
+<!-- FOOTER -->
+<footer
+  class="border-t border-[#E5E5E8] bg-[#F8F8FA] pt-12 pb-8 md:pt-16"
+  id="partnerstvo"
+>
+  <div class="mx-auto max-w-[1440px] px-5 sm:px-6 md:px-16">
+    <div class="mb-12 grid grid-cols-1 items-baseline gap-6 border-[#E5E5E8] md:mb-16 md:grid-cols-12 md:gap-8">
+      <div class="md:col-span-4">
+        <span class="mb-1 block font-headline text-[10px] tracking-[0.2em] uppercase text-[#6A6D72]">
+          E-MAIL
+        </span>
+        <a
+          class="font-headline text-base font-bold text-[#121314] transition-colors hover:text-[#D2232A] sm:text-lg lg:text-xl"
+          href={`mailto:${siteConfig.email}`}
+        >
+          {siteConfig.email}
+        </a>
+      </div>
+      <div class="md:col-span-4">
+        <span class="mb-1 block font-headline text-[10px] tracking-[0.2em] uppercase text-[#6A6D72]">
+          TELEFÓN
+        </span>
+        <a
+          href={`tel:${siteConfig.phone}`}
+          class="font-headline font-mono text-base font-bold text-[#121314] no-underline transition-colors hover:text-[#D2232A] sm:text-lg lg:text-xl"
+        >
+          {siteConfig.phoneDisplay}
+        </a>
+      </div>
+      <div class="md:col-span-4 md:text-right">
+        <span class="mb-1 block font-headline text-[10px] tracking-[0.2em] uppercase text-[#6A6D72]">
+          ADRESA A SÍDLO
+        </span>
+        <span class="block font-headline font-mono text-base font-bold text-[#121314] sm:text-lg lg:text-xl">
+          {siteConfig.street}, {siteConfig.zip}
+          {siteConfig.city} · IČO: {siteConfig.ico}
+        </span>
+      </div>
+    </div>
+
+    <div
+      class="pointer-events-none overflow-hidden border-[#E5E5E8] pt-4 select-none md:pt-8"
+      aria-hidden="true"
+    >
+      <div class="w-full text-center font-headline text-[18vw] leading-none font-bold tracking-[-0.05em] uppercase text-[#D2232A]">
+        PASSIT
+      </div>
+    </div>
+
+    <div class="mt-4 grid grid-cols-1 items-center gap-3 border-t border-[#E5E5E8] pt-6 pb-2 font-mono text-xs text-[#6A6D72] md:mt-0 md:grid-cols-3 md:gap-4 md:pt-8 md:pb-4">
+      <div class="text-center md:text-left">
+        © 2026 {siteConfig.legalName} Všetky práva vyhradené.
+      </div>
+      <div class="text-center">
+        Web by <span class="font-semibold text-[#121314]">FKstudio</span>
+      </div>
+      <div class="flex items-center justify-center gap-4 md:justify-end">
+        <a class="transition-colors hover:text-[#121314]" href="#privacy">
+          Ochrana osobných údajov
+        </a>
+        <span aria-hidden="true">·</span>
+        <a class="transition-colors hover:text-[#121314]" href="#cookies">
+          Cookies
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
