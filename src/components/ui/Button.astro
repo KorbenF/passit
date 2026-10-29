@@ -1,0 +1,77 @@
+---
+interface Props {
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+  id?: string;
+  ariaLabel?: string;
+  ariaExpanded?: boolean;
+  ariaControls?: string;
+}
+
+const {
+  href,
+  type = 'button',
+  variant = 'primary',
+  size = 'md',
+  class: className = '',
+  id,
+  ariaLabel,
+  ariaExpanded,
+  ariaControls,
+} = Astro.props;
+
+const baseStyles =
+  'inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus disabled:pointer-events-none disabled:opacity-50 cursor-pointer rounded-lg text-center';
+
+const variantStyles = {
+  primary:
+    'bg-tomato text-white hover:bg-tomato-dark active:bg-tomato-dark shadow-sm',
+  secondary:
+    'bg-olive text-white hover:bg-olive-dark active:bg-olive-dark shadow-sm',
+  outline:
+    'border border-border-ui text-ink hover:bg-cream-subtle active:bg-border',
+  ghost:
+    'text-ink hover:bg-cream-subtle active:bg-border text-ink-muted hover:text-ink',
+} as const;
+
+const sizeStyles = {
+  sm: 'min-h-[36px] px-3 py-1.5 text-sm gap-1.5',
+  md: 'min-h-[44px] px-4 py-2.5 text-base gap-2',
+  lg: 'min-h-[50px] px-6 py-3 text-lg gap-2.5',
+} as const;
+---
+
+{href ? (
+  <a
+    href={href}
+    id={id}
+    aria-label={ariaLabel}
+    class:list={[
+      baseStyles,
+      variantStyles[variant],
+      sizeStyles[size],
+      className,
+    ]}
+  >
+    <slot />
+  </a>
+) : (
+  <button
+    type={type}
+    id={id}
+    aria-label={ariaLabel}
+    aria-expanded={ariaExpanded}
+    aria-controls={ariaControls}
+    class:list={[
+      baseStyles,
+      variantStyles[variant],
+      sizeStyles[size],
+      className,
+    ]}
+  >
+    <slot />
+  </button>
+)}

@@ -1,0 +1,26 @@
+---
+interface Props {
+  variant?: 'default' | 'olive' | 'tomato' | 'outline';
+  class?: string;
+}
+
+const { variant = 'default', class: className = '' } = Astro.props;
+
+const variantStyles = {
+  default: 'bg-cream-subtle text-ink border border-border',
+  olive: 'bg-olive-light text-olive-dark border border-olive/20 font-semibold',
+  tomato:
+    'bg-tomato-light text-tomato-dark border border-tomato/20 font-semibold',
+  outline: 'bg-transparent text-ink-muted border border-border-ui',
+} as const;
+---
+
+<span
+  class:list={[
+    'inline-flex items-center gap-1 rounded-md px-2.5 py-0.5 text-xs font-medium tracking-wide uppercase',
+    variantStyles[variant],
+    className,
+  ]}
+>
+  <slot />
+</span>

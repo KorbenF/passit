@@ -1,0 +1,81 @@
+---
+import { siteConfig } from '../../lib/site';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+
+const navLinks = [
+  { href: '/#sortiment', label: 'Katalóg' },
+  { href: '/#partneri', label: 'Partneri' },
+  { href: '/#logistika', label: 'O nás' },
+  { href: '/#partnerstvo', label: 'Kontakt' },
+];
+---
+
+<!-- Backdrop pre mobilné menu pod hlavičkou -->
+<div
+  id="mobile-nav-backdrop"
+  class="touch-none fixed inset-0 top-16 z-40 hidden bg-[#121314]/40 backdrop-blur-[2px] transition-opacity duration-300 md:hidden"
+  tabindex="-1"
+  aria-hidden="true"
+></div>
+
+<!-- Mobilné menu (Čisté, kompaktné priamo pod hlavičkou bez nutnosti scrollovania) -->
+<div
+  id="mobile-nav-drawer"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Mobilná navigácia"
+  class="overscroll-contain fixed inset-x-0 top-16 z-40 hidden flex-col border-b border-[#E5E5E8] bg-[#FCF8F8] shadow-2xl transition-all duration-300 md:hidden"
+>
+  <div class="flex flex-col">
+    <!-- Hlavné navigačné položky: čisté bez balastu -->
+    <nav aria-label="Mobilné navigačné odkazy" class="flex flex-col px-5 pt-2">
+      {navLinks.map((link) => {
+        const isActive = link.href === currentPath;
+        return (
+          <a
+            href={link.href}
+            aria-current={isActive ? 'page' : undefined}
+            class="flex items-center justify-between border-b border-[#E5E5E8] py-4 font-headline text-base font-bold tracking-[0.06em] uppercase text-[#121314] transition-colors hover:text-[#D2232A] active:text-[#D2232A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+          >
+            <span>{link.label}</span>
+          </a>
+        );
+      })}
+    </nav>
+
+    <!-- Priamy kontakt -->
+    <div class="px-5 py-4">
+      <div class="grid grid-cols-2 gap-3 font-mono text-xs">
+        <div>
+          <span class="block text-[10px] tracking-widest uppercase text-[#6A6D72]">
+            TELEFÓN
+          </span>
+          <a
+            href={`tel:${siteConfig.phone}`}
+            class="mt-0.5 block font-bold text-[#121314] no-underline hover:text-[#D2232A]"
+          >
+            {siteConfig.phoneDisplay}
+          </a>
+        </div>
+        <div>
+          <span class="block text-[10px] tracking-widest uppercase text-[#6A6D72]">
+            E-MAIL
+          </span>
+          <a
+            href={`mailto:${siteConfig.email}`}
+            class="mt-0.5 block truncate font-bold text-[#121314] no-underline hover:text-[#D2232A]"
+          >
+            {siteConfig.email}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="./mobile-nav.ts"></script>

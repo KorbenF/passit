@@ -1,0 +1,58 @@
+---
+import SkipLink from '../components/ui/SkipLink.astro';
+import fontSansLatinExt from '@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-ext-wght-normal.woff2?url';
+import fontSansLatin from '@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-normal.woff2?url';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string | undefined;
+  lang?: string | undefined;
+}
+
+const {
+  title,
+  description = 'Passit — B2B distribútor prémiových talianskych potravín pre reštaurácie, pizzerie a hotely na Slovensku.',
+  lang = 'sk',
+} = Astro.props;
+
+const formattedTitle = title.includes('Passit') ? title : `${title} | Passit`;
+---
+
+<!doctype html>
+<html lang={lang} class="h-full bg-[#F8F8FA] text-[#121314] antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="preload"
+      href={fontSansLatinExt}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href={fontSansLatin}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{formattedTitle}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body class="flex min-h-screen flex-col bg-[#F8F8FA] font-body text-[#121314] selection:bg-[#121314] selection:text-[#F8F8FA]">
+    <SkipLink targetId="main-content" />
+    <slot name="header" />
+    <main
+      id="main-content"
+      class="flex-grow pt-16 md:pt-20 focus:outline-none"
+      tabindex="-1"
+    >
+      <slot />
+    </main>
+    <slot name="footer" />
+  </body>
+</html>

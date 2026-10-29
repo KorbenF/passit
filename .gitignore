@@ -19,8 +19,12 @@ pnpm-debug.log*
 .dev.vars.*
 !.dev.vars.example
 
-# Test coverage
+# Test coverage and artifacts
 coverage/
+test-results/
+playwright-report/
+.lighthouseci/
+tests/e2e/screenshots/mobile-*.png
 
 # Cloudflare Wrangler local state
 .wrangler/

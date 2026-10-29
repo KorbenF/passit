@@ -1,0 +1,29 @@
+---
+interface Props {
+  as?: 'div' | 'article' | 'li';
+  class?: string;
+  variant?: 'default' | 'subtle' | 'outline';
+}
+
+const {
+  as: Tag = 'div',
+  class: className = '',
+  variant = 'default',
+} = Astro.props;
+
+const variantStyles = {
+  default: 'bg-white border border-border shadow-xs',
+  subtle: 'bg-cream-subtle border border-border/70',
+  outline: 'bg-transparent border border-border-ui',
+} as const;
+---
+
+<Tag
+  class:list={[
+    'rounded-xl p-6 transition-all',
+    variantStyles[variant],
+    className,
+  ]}
+>
+  <slot />
+</Tag>

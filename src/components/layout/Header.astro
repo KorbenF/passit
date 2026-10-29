@@ -1,0 +1,85 @@
+---
+import MobileNav from './MobileNav.astro';
+import Logo from '../ui/Logo.astro';
+import { siteConfig } from '../../lib/site';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+
+const navLinks = [
+  { href: '/#sortiment', label: 'Katalóg' },
+  { href: '/#partneri', label: 'Partneri' },
+  { href: '/#logistika', label: 'O nás' },
+  { href: '/#partnerstvo', label: 'Kontakt' },
+];
+---
+
+<!-- TOP ARCHITECTURAL BAR -->
+<header class="fixed top-0 left-0 right-0 z-50 flex h-16 w-full box-border items-center justify-between border-b border-[#E5E5E8] bg-[#FCF8F8] px-5 sm:px-6 md:h-20 md:px-12">
+  <div class="flex items-center whitespace-nowrap">
+    <a
+      class="brand-lockup group inline-flex items-center gap-[10px] no-underline transition-opacity duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+      href="/"
+      aria-label={`${siteConfig.name} - Domov`}
+    >
+      <Logo class="transition-transform duration-200 group-hover:scale-105" />
+      <span class="inline-block font-headline text-[19px] font-bold leading-none tracking-[-0.02em] text-[#D2232A] md:text-[21px]">
+        PASSIT
+      </span>
+    </a>
+    <span
+      class="mx-5 hidden h-5 w-px bg-[#E5E5E8] md:inline-block"
+      aria-hidden="true"
+    ></span>
+  </div>
+
+  <!-- Desktop navigácia + CTA -->
+  <div class="hidden items-center whitespace-nowrap md:flex">
+    <nav aria-label="Hlavná navigácia" class="flex items-center gap-9">
+      {navLinks.map((link) => (
+        <a
+          class="font-headline text-[11px] font-semibold tracking-[0.12em] uppercase text-[#121314] no-underline whitespace-nowrap transition-colors hover:text-[#D2232A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+          href={link.href}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+    <a
+      class="ml-8 inline-flex items-center gap-2 bg-[#D2232A] px-6 py-[14px] font-headline text-[11px] font-semibold tracking-[0.12em] uppercase text-[#FCF8F8] no-underline whitespace-nowrap transition-colors hover:bg-[#b51d23] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+      href="/#alokacia"
+      id="alokacia-cta"
+    >
+      ZÍSKAŤ CENNÍK
+    </a>
+  </div>
+
+  <!-- Mobilné ovládanie (rýchle CTA + animovaný hamburger do krížika) -->
+  <div class="flex items-center gap-2.5 md:hidden">
+    <a
+      href="/#alokacia"
+      class="inline-flex min-h-[40px] items-center justify-center bg-[#D2232A] px-3.5 py-2 font-headline text-[10px] font-bold tracking-[0.1em] uppercase text-[#FCF8F8] no-underline whitespace-nowrap transition-colors hover:bg-[#b51d23]"
+    >
+      CENNÍK
+    </a>
+    <button
+      id="mobile-nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="mobile-nav-drawer"
+      aria-label="Otvoriť navigáciu"
+      class="inline-flex min-h-[44px] min-w-[44px] items-center justify-center border border-[#E5E5E8] bg-[#FFFFFF] text-[#121314] transition-colors hover:border-[#121314] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+    >
+      <span class="relative block h-5 w-5" aria-hidden="true">
+        <span class="hamburger-line line-1 absolute left-0 block h-[2px] w-5 rounded-full bg-[#121314] origin-center transition-all duration-300 ease-in-out"></span>
+        <span class="hamburger-line line-2 absolute left-0 block h-[2px] w-5 rounded-full bg-[#121314] origin-center transition-all duration-200 ease-in-out"></span>
+        <span class="hamburger-line line-3 absolute left-0 block h-[2px] w-5 rounded-full bg-[#121314] origin-center transition-all duration-300 ease-in-out"></span>
+      </span>
+    </button>
+  </div>
+</header>
+
+<MobileNav currentPath={currentPath} />

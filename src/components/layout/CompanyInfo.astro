@@ -1,0 +1,23 @@
+---
+import { siteConfig } from '../../lib/site';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div class:list={['text-xs text-ink-muted space-y-1', className]}>
+  <p class="font-semibold text-ink">{siteConfig.legalName}</p>
+  <p>
+    {siteConfig.street}, {siteConfig.zip} {siteConfig.city}
+  </p>
+  <p>
+    IČO: {siteConfig.ico} · DIČ: {siteConfig.dic} · IČ DPH: {siteConfig.icDph}
+  </p>
+  <p>{siteConfig.registryInfo}</p>
+  {siteConfig.svpsRegNo && (
+    <p>Registračné číslo ŠVPS: {siteConfig.svpsRegNo}</p>
+  )}
+</div>

@@ -1,0 +1,24 @@
+---
+interface Props {
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+  class?: string;
+  id?: string;
+}
+
+const { level = 2, class: className = '', id } = Astro.props;
+
+const Tag = `h${level}` as const;
+
+const sizeStyles = {
+  1: 'text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl font-serif text-ink',
+  2: 'text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl font-serif text-ink',
+  3: 'text-xl font-semibold sm:text-2xl font-serif text-ink',
+  4: 'text-lg font-semibold sm:text-xl font-serif text-ink',
+  5: 'text-base font-semibold font-serif text-ink',
+  6: 'text-sm font-semibold font-serif text-ink',
+} as const;
+---
+
+<Tag id={id} class:list={[sizeStyles[level], className]}>
+  <slot />
+</Tag>

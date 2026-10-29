@@ -1,0 +1,19 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string | undefined;
+  currentPath?: string | undefined;
+}
+
+const { title, description, currentPath = Astro.url.pathname } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <Header slot="header" currentPath={currentPath} />
+  <slot />
+  <Footer slot="footer" />
+</BaseLayout>

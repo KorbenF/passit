@@ -9,6 +9,7 @@ export default tseslint.config(
     ignores: [
       'dist/**',
       '.astro/**',
+      '.wrangler/**',
       'node_modules/**',
       'coverage/**',
       '.agents/**',
@@ -108,6 +109,19 @@ export default tseslint.config(
     files: ['src/components/seo/JsonLd.astro'],
     rules: {
       'astro/no-set-html-directive': 'off',
+    },
+  },
+  // CommonJS files
+  {
+    files: ['**/*.cjs'],
+    languageOptions: {
+      globals: {
+        module: 'readonly',
+        exports: 'readonly',
+        require: 'readonly',
+        __dirname: 'readonly',
+        __filename: 'readonly',
+      },
     },
   }
 );

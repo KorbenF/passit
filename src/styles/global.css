@@ -1,0 +1,157 @@
+@import 'tailwindcss';
+
+/* Lora Variable (Serif) */
+@font-face {
+  font-family: 'Lora Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('@fontsource-variable/lora/files/lora-latin-ext-wght-normal.woff2')
+    format('woff2-variations');
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Lora Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('@fontsource-variable/lora/files/lora-latin-wght-normal.woff2')
+    format('woff2-variations');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
+}
+
+/* Plus Jakarta Sans Variable (Sans - nadpisy, text a UI) */
+@font-face {
+  font-family: 'Plus Jakarta Sans Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-ext-wght-normal.woff2')
+    format('woff2-variations');
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url('@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-normal.woff2')
+    format('woff2-variations');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
+}
+
+@theme {
+  --font-serif: 'Lora Variable', Georgia, Cambria, 'Times New Roman', serif;
+  --font-sans:
+    'Plus Jakarta Sans Variable', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, sans-serif;
+  --font-headline:
+    'Plus Jakarta Sans Variable', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, sans-serif;
+  --font-body:
+    'Plus Jakarta Sans Variable', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+
+  --color-cream: #f8f8fa;
+  --color-cream-subtle: #fcf8f8;
+  --color-white: #ffffff;
+  --color-ink: #121314;
+  --color-ink-muted: #6a6d72;
+  --color-ink-faint: #8e9094;
+  --color-border: #e5e5e8;
+  --color-border-ui: #6a6d72;
+  --color-tomato: #d2232a;
+  --color-tomato-dark: #b51d23;
+  --color-tomato-on-dark: #f03e45;
+  --color-tomato-light: #fcf8f8;
+  --color-olive: #121314;
+  --color-olive-dark: #17181a;
+  --color-olive-light: #f8f8fa;
+  --color-focus: #d2232a;
+}
+
+@layer base {
+  * {
+    border-radius: 0px;
+    box-shadow: none;
+  }
+
+  ::selection {
+    background-color: #121314;
+    color: #f8f8fa;
+  }
+
+  html {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background-color: var(--color-cream);
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+}
+
+/* Animated Hamburger to Cross */
+#mobile-nav-toggle .line-1 {
+  top: 3px;
+}
+
+#mobile-nav-toggle .line-2 {
+  top: 9px;
+}
+
+#mobile-nav-toggle .line-3 {
+  top: 15px;
+}
+
+#mobile-nav-toggle[aria-expanded='true'] .line-1 {
+  top: 9px;
+  transform: rotate(45deg);
+}
+
+#mobile-nav-toggle[aria-expanded='true'] .line-2 {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+#mobile-nav-toggle[aria-expanded='true'] .line-3 {
+  top: 9px;
+  transform: rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #mobile-nav-toggle .hamburger-line {
+    transition: none;
+  }
+}

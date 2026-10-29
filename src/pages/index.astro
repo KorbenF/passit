@@ -1,18 +1,668 @@
 ---
-// Passit B2B - Placeholder for Phase 1
+import { Image } from 'astro:assets';
+import PageLayout from '../layouts/PageLayout.astro';
+import { siteConfig } from '../lib/site';
+import heroPizzaImg from '../assets/images/hero-pizza.jpg';
+import flourStagioniImg from '../assets/images/flour-stagioni.jpg';
+import cheeseValcolatteImg from '../assets/images/cheese-valcolatte.jpg';
+import seafoodGalanaImg from '../assets/images/seafood-galana.jpg';
+import valcolatteLogo from '../assets/images/partners/valcolatte.svg';
+import coatiLogo from '../assets/images/partners/coati.png';
+import galanaLogo from '../assets/images/partners/galana.png';
+import le5stagioniLogo from '../assets/images/partners/le5stagioni.svg';
+import simoniniLogo from '../assets/images/partners/simonini.svg';
 ---
 
-<!doctype html>
-<html lang="sk">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Passit — B2B distribúcia talianskych potravín</title>
-  </head>
-  <body>
-    <main>
-      <h1>Passit</h1>
-      <p>B2B distribúcia prémiových talianskych potravín pre HoReCa.</p>
-    </main>
-  </body>
-</html>
+<PageLayout
+  title="Passit — B2B distribúcia prémiových talianskych potravín"
+  description="Priamy import certifikovaných talianskych surovín a prémiových špecialít pre popredné pizzerie a reštaurácie na Slovensku."
+>
+  <!-- HERO SECTION -->
+  <section class="border-[#E5E5E8] bg-[#F8F8FA]">
+    <div class="mx-auto max-w-[1440px] px-5 pt-10 pb-0 sm:px-6 md:px-16 md:pt-16 md:pb-0">
+      <!-- Headline -->
+      <div class="mb-8 md:mb-14">
+        <h1 class="font-headline text-[clamp(1.75rem,7.2vw,3.5rem)] leading-[1.18] font-bold tracking-[-0.035em] uppercase text-[#121314] sm:text-6xl sm:leading-[1.15] md:text-7xl md:leading-[1.12] lg:text-[5.5rem] lg:leading-[1.1]">
+          <span class="block">AUTENTICKÝ PÔVOD.</span>
+          <span class="mt-2 block text-[#6A6D72] md:mt-4 md:pl-[28%] lg:pl-[33%]">
+            NEKOMPROMISNÁ ČERSTVOSŤ.
+          </span>
+        </h1>
+      </div>
+
+      <!-- 12-Column Hero Matrix -->
+      <div class="grid grid-cols-1 items-start gap-6 border-t border-[#E5E5E8] pt-6 lg:grid-cols-12 lg:gap-8">
+        <!-- Visual Hero Pizza: na mobile sa zobrazuje HNEĎ pod headline, na desktope vpravo -->
+        <div class="lg:col-span-7 lg:order-2">
+          <div class="border border-[#E5E5E8] bg-[#FFFFFF] p-1.5 sm:p-2">
+            <div class="overflow-hidden bg-[#121314]">
+              <Image
+                alt="Mozzarella di Bufala a San Marzano D.O.P. na neapolskej pizzi"
+                src={heroPizzaImg}
+                width={512}
+                height={342}
+                format="webp"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                class="block aspect-[16/10] h-auto w-full object-cover transition-all duration-700"
+              />
+            </div>
+            <div class="flex flex-col items-start justify-between gap-1 border-t border-[#E5E5E8] bg-[#FFFFFF] px-3 py-2 sm:flex-row sm:items-center sm:px-4 sm:py-3">
+              <span class="font-headline text-[9px] font-medium tracking-[0.12em] uppercase text-[#121314] sm:text-[10px] sm:tracking-[0.14em]">
+                CAMPANIA · NEAPOL | AUTENTICKÁ PIZZA NAPOLETANA
+              </span>
+              <span class="font-mono text-[9px] text-[#6A6D72] sm:text-[10px]">
+                REF. 40.8518° N, 14.2681° E
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text a CTA: na mobile pod pizzou, na desktope vľavo -->
+        <div class="flex h-full flex-col justify-between space-y-6 sm:space-y-8 pr-0 lg:col-span-5 lg:order-1 lg:pr-8">
+          <div class="space-y-4 md:space-y-6">
+            <span class="block font-mono text-[11px] font-semibold tracking-widest uppercase text-[#D2232A]">
+              GARANTOVANÝ PÔVOD ZO ZDROJA
+            </span>
+            <p
+              class="font-body text-base leading-[1.6] font-normal text-[#121314] sm:text-lg sm:leading-[1.65] md:text-xl"
+              data-testid="diacritics-sample"
+            >
+              Priamy import certifikovaných talianskych surovín a prémiových
+              špecialít pre popredné pizzerie a reštaurácie na Slovensku.
+            </p>
+            <p class="max-w-md font-body text-sm leading-[1.65] text-[#6A6D72]">
+              Zabezpečujeme nepretržitý dodávateľský reťazec: chladený režim
+              +2&nbsp;°C až +4&nbsp;°C a mrazený režim -18&nbsp;°C priamo od
+              výrobcov až do vašej profesionálnej kuchyne.
+            </p>
+            <div class="my-4 flex flex-col items-stretch gap-2.5 sm:my-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+              <a
+                class="inline-flex w-full items-center justify-center bg-[#D2232A] px-5 py-3.5 text-center font-headline text-xs font-bold tracking-[0.06em] uppercase text-[#FCF8F8] no-underline transition-all hover:bg-[#b51d23] active:translate-y-[1px] sm:w-auto sm:px-7 sm:py-4 sm:text-[13px] sm:whitespace-nowrap"
+                href="#alokacia"
+              >
+                VYŽIADAŤ VEĽKOOBCHODNÝ CENNÍK
+              </a>
+              <a
+                class="inline-flex w-full items-center justify-center py-2 text-center font-headline text-xs font-medium text-[#6A6D72] no-underline transition-colors hover:text-[#121314] sm:w-auto sm:border sm:border-[#121314] sm:bg-transparent sm:px-6 sm:py-4 sm:font-semibold sm:text-[#121314] sm:hover:bg-[#121314] sm:hover:text-[#F8F8FA] sm:text-[13px] sm:whitespace-nowrap"
+                href="#sortiment"
+              >
+                Prejsť na sortiment ↓
+              </a>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 border-t border-[#E5E5E8] pt-5 sm:gap-6 sm:pt-6">
+            <div class="border-l border-[#121314] pl-3 sm:pl-4">
+              <span class="block font-headline text-[10px] tracking-widest uppercase text-[#6A6D72]">
+                ZÁVOZOVÝ REŽIM
+              </span>
+              <span class="mt-1 block font-headline text-xs font-semibold text-[#121314] sm:text-base">
+                Týždenne PO - PIA
+              </span>
+            </div>
+            <div class="border-l border-[#121314] pl-3 sm:pl-4">
+              <span class="block font-headline text-[10px] tracking-widest uppercase text-[#6A6D72]">
+                CERTIFIKÁCIA
+              </span>
+              <span class="mt-1 block font-headline text-xs font-semibold text-[#121314] sm:text-base">
+                D.O.P. &amp; I.G.P. Garancia
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 border-b border-[#E5E5E8] md:mt-16"></div>
+    </div>
+  </section>
+
+  <!-- PARTNER MATRIX -->
+  <section class="border-b border-[#E5E5E8] bg-[#F8F8FA]" id="partneri">
+    <div class="mx-auto flex max-w-[1440px] flex-col justify-between gap-4 px-5 pt-12 pb-8 sm:px-6 md:flex-row md:items-end md:gap-6 md:px-16 md:pt-16 md:pb-10">
+      <div>
+        <span class="block font-mono text-[11px] font-semibold tracking-widest uppercase text-[#D2232A]">
+          ZASTÚPENIA VÝROBCOV
+        </span>
+        <h2 class="mt-2 mb-0 font-headline text-2xl leading-[1.2] font-bold tracking-tight uppercase text-[#121314] sm:text-3xl sm:leading-[1.18]">
+          OFICIÁLNI PARTNERI
+        </h2>
+      </div>
+      <p class="mb-0 max-w-md font-body text-xs leading-relaxed text-[#6A6D72] md:text-right">
+        Priamy import od certifikovaných rodinných mlynov, syrární a producentov
+        bez sprostredkovateľov.
+      </p>
+    </div>
+
+    <div class="w-full border-t border-b border-[#E5E5E8] bg-[#FFFFFF]">
+      <div class="mx-auto grid max-w-[1440px] grid-cols-2 lg:grid-cols-5 lg:divide-x lg:divide-y-0">
+        <!-- Column 01: Caseificio Valcolatte -->
+        <div class="group flex min-h-[115px] flex-col items-center justify-between border-r border-b border-[#E5E5E8] bg-[#FFFFFF] px-3 py-4 text-center transition-colors hover:bg-[#F8F8FA] sm:min-h-[135px] sm:py-5 lg:min-h-[176px] lg:border-r-0 lg:border-b-0 lg:px-4 lg:py-8">
+          <div class="flex h-12 w-full items-center justify-center sm:h-14 lg:h-16">
+            <Image
+              alt="Caseificio Valcolatte"
+              src={valcolatteLogo}
+              width={142}
+              height={65}
+              loading="lazy"
+              decoding="async"
+              class="h-9 w-auto max-w-[120px] object-contain transition-transform duration-300 group-hover:scale-105 sm:h-11 sm:max-w-[135px] lg:h-12 lg:max-w-[150px]"
+            />
+          </div>
+          <span class="mt-2 font-mono text-[9px] leading-tight tracking-wider uppercase text-[#6A6D72] sm:text-[10px] sm:leading-none sm:whitespace-nowrap lg:mt-4">
+            ČERSTVÁ MOZZARELLA &amp; SYRY
+          </span>
+        </div>
+
+        <!-- Column 02: Salumi Coati -->
+        <div class="group flex min-h-[115px] flex-col items-center justify-between border-b border-[#E5E5E8] bg-[#FFFFFF] px-3 py-4 text-center transition-colors hover:bg-[#F8F8FA] sm:min-h-[135px] sm:py-5 lg:min-h-[176px] lg:border-b-0 lg:px-4 lg:py-8">
+          <div class="flex h-12 w-full items-center justify-center sm:h-14 lg:h-16">
+            <Image
+              alt="Salumi Coati"
+              src={coatiLogo}
+              width={160}
+              height={80}
+              format="webp"
+              loading="lazy"
+              decoding="async"
+              class="h-10 w-auto max-w-[120px] object-contain transition-transform duration-300 group-hover:scale-105 sm:h-12 sm:max-w-[135px] lg:h-14 lg:max-w-[150px]"
+            />
+          </div>
+          <span class="mt-2 font-mono text-[9px] leading-tight tracking-wider uppercase text-[#6A6D72] sm:text-[10px] sm:leading-none sm:whitespace-nowrap lg:mt-4">
+            PRÉMIOVÉ ŠUNKY &amp; SALUMI
+          </span>
+        </div>
+
+        <!-- Column 03: Galana Seafood -->
+        <div class="group flex min-h-[115px] flex-col items-center justify-between border-r border-b border-[#E5E5E8] bg-[#FFFFFF] px-3 py-4 text-center transition-colors hover:bg-[#F8F8FA] sm:min-h-[135px] sm:py-5 lg:min-h-[176px] lg:border-r-0 lg:border-b-0 lg:px-4 lg:py-8">
+          <div class="flex h-12 w-full items-center justify-center sm:h-14 lg:h-16">
+            <Image
+              alt="Galana Seafood"
+              src={galanaLogo}
+              width={196}
+              height={60}
+              format="webp"
+              loading="lazy"
+              decoding="async"
+              class="h-9 w-auto max-w-[120px] object-contain transition-transform duration-300 group-hover:scale-105 sm:h-11 sm:max-w-[135px] lg:h-11 lg:max-w-[165px]"
+            />
+          </div>
+          <span class="mt-2 font-mono text-[9px] leading-tight tracking-wider uppercase text-[#6A6D72] sm:text-[10px] sm:leading-none sm:whitespace-nowrap lg:mt-4">
+            MORSKÉ PLODY &amp; GAMBERI
+          </span>
+        </div>
+
+        <!-- Column 04: Le 5 Stagioni -->
+        <div class="group flex min-h-[115px] flex-col items-center justify-between border-b border-[#E5E5E8] bg-[#FFFFFF] px-3 py-4 text-center transition-colors hover:bg-[#F8F8FA] sm:min-h-[135px] sm:py-5 lg:min-h-[176px] lg:border-b-0 lg:px-4 lg:py-8">
+          <div class="flex h-12 w-full items-center justify-center sm:h-14 lg:h-16">
+            <Image
+              alt="Le 5 Stagioni — Agugiaro & Figna Molini"
+              src={le5stagioniLogo}
+              width={135}
+              height={78}
+              loading="lazy"
+              decoding="async"
+              class="h-10 w-auto max-w-[115px] object-contain transition-transform duration-300 group-hover:scale-105 sm:h-12 sm:max-w-[130px] lg:h-14 lg:max-w-[145px]"
+            />
+          </div>
+          <span class="mt-2 font-mono text-[9px] leading-tight tracking-wider uppercase text-[#6A6D72] sm:text-[10px] sm:leading-none sm:whitespace-nowrap lg:mt-4">
+            MÚKY TIPO 00 PRE PIZZERIE
+          </span>
+        </div>
+
+        <!-- Column 05: Salumificio Simonini -->
+        <div class="group col-span-2 flex min-h-[115px] flex-col items-center justify-between bg-[#FFFFFF] px-3 py-4 text-center transition-colors hover:bg-[#F8F8FA] sm:min-h-[135px] sm:py-5 lg:col-span-1 lg:min-h-[176px] lg:px-4 lg:py-8">
+          <div class="flex h-12 w-full items-center justify-center sm:h-14 lg:h-16">
+            <Image
+              alt="Salumificio Simonini 1927"
+              src={simoniniLogo}
+              width={148}
+              height={80}
+              loading="lazy"
+              decoding="async"
+              class="h-10 w-auto max-w-[120px] object-contain transition-transform duration-300 group-hover:scale-105 sm:h-12 sm:max-w-[135px] lg:h-14 lg:max-w-[150px]"
+            />
+          </div>
+          <span class="mt-2 font-mono text-[9px] leading-tight tracking-wider uppercase text-[#6A6D72] sm:text-[10px] sm:leading-none sm:whitespace-nowrap lg:mt-4">
+            TRADIČNÉ TALIANSKE ÚDENINY
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVENTORY MATRIX WITH PDF DOWNLOAD BUTTON -->
+  <section class="border-b border-[#E5E5E8] bg-[#FFFFFF]" id="sortiment">
+    <div class="mx-auto max-w-[1440px] px-5 py-16 sm:px-6 md:px-16 md:py-24">
+      <div class="mb-10 grid grid-cols-1 items-end gap-6 border-b border-[#E5E5E8] pb-6 md:mb-16 md:gap-8 md:pb-8 lg:grid-cols-12">
+        <div class="lg:col-span-6">
+          <span class="mb-2 block font-mono text-[11px] font-semibold tracking-widest uppercase text-[#D2232A]">
+            INVENTÁR SUROVÍN
+          </span>
+          <h2 class="font-headline text-2xl leading-[1.2] font-bold tracking-tight uppercase text-[#121314] sm:text-4xl sm:leading-[1.18] lg:text-5xl lg:leading-[1.18]">
+            Sortiment pre HoReCa prevádzky
+          </h2>
+        </div>
+      </div>
+
+      <!-- Staggered Grid -->
+      <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-12">
+        <article class="flex flex-col border border-[#E5E5E8] bg-[#F8F8FA] lg:col-span-7">
+          <div class="flex items-center justify-between border-b border-[#E5E5E8] bg-[#FFFFFF] p-3">
+            <span class="font-headline text-[10px] font-bold tracking-[0.16em] uppercase text-[#121314]">
+              MÚKY &amp; POMALÉ KYSNUTIE
+            </span>
+          </div>
+          <div class="overflow-hidden bg-[#121314]">
+            <Image
+              alt="Preosievanie remeselnej múky Le 5 Stagioni"
+              src={flourStagioniImg}
+              width={512}
+              height={341}
+              format="webp"
+              loading="lazy"
+              decoding="async"
+              class="aspect-[16/9] w-full object-cover transition-transform duration-500 hover:scale-[1.02]"
+            />
+          </div>
+          <div class="flex flex-grow flex-col justify-between bg-[#FFFFFF] p-6 sm:p-8">
+            <div>
+              <h3 class="mb-3 font-headline text-xl font-bold tracking-tight uppercase text-[#121314] sm:text-2xl">
+                LE 5 STAGIONI · MÚKY PRE PIZZERIE
+              </h3>
+              <p class="mb-0 font-body text-sm leading-relaxed text-[#6A6D72]">
+                Talianska jednotka v mletí pšeničných múk pre pravú neapolskú
+                pizzu a remeselné gastro. Múky Tipo 00 s certifikáciou AVPN,
+                vyvinuté pre vysokú hydratáciu, elasticitu a 24 až 72-hodinovú
+                fermentáciu cesta.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="flex flex-col border border-[#E5E5E8] bg-[#F8F8FA] lg:col-span-5 lg:mt-24">
+          <div class="flex items-center justify-between border-b border-[#E5E5E8] bg-[#FFFFFF] p-3">
+            <span class="font-headline text-[10px] font-bold tracking-[0.16em] uppercase text-[#121314]">
+              ČERSTVÉ SYRY
+            </span>
+          </div>
+          <div class="overflow-hidden bg-[#121314]">
+            <Image
+              alt="Čerstvá Mozzarella Caseificio Valcolatte"
+              src={cheeseValcolatteImg}
+              width={384}
+              height={512}
+              format="webp"
+              loading="lazy"
+              decoding="async"
+              class="aspect-[16/10] w-full object-cover transition-transform duration-500 hover:scale-[1.02] sm:aspect-[3/4]"
+            />
+          </div>
+          <div class="flex flex-grow flex-col justify-between bg-[#FFFFFF] p-6 sm:p-8">
+            <div>
+              <h3 class="mb-3 font-headline text-xl font-bold tracking-tight uppercase text-[#121314] sm:text-2xl">
+                CASEIFICIO VALCOLATTE 1914
+              </h3>
+              <p class="mb-0 font-body text-sm leading-relaxed text-[#6A6D72]">
+                Tradičná talianska mliekareň z regiónu Emilia-Romagna.
+                Špecialista na Mozzarellu zo 100&nbsp;% talianskeho mlieka.
+                Vyniká perfektným tavením, pružnosťou a nulovým púšťaním
+                prebytočnej vody v peci.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="flex flex-col border border-[#E5E5E8] bg-[#F8F8FA] lg:col-span-5">
+          <div class="flex items-center justify-between border-b border-[#E5E5E8] bg-[#FFFFFF] p-3">
+            <span class="font-headline text-[10px] font-bold tracking-[0.16em] uppercase text-[#121314]">
+              RYBY &amp; MORSKÉ PLODY
+            </span>
+          </div>
+          <div class="overflow-hidden bg-[#121314]">
+            <Image
+              alt="Black Tiger krevety a morské plody Galana Seafood"
+              src={seafoodGalanaImg}
+              width={341}
+              height={512}
+              format="webp"
+              loading="lazy"
+              decoding="async"
+              class="aspect-[16/10] w-full object-cover transition-transform duration-500 hover:scale-[1.02] sm:aspect-square"
+            />
+          </div>
+          <div class="flex flex-grow flex-col justify-between bg-[#FFFFFF] p-6 sm:p-8">
+            <div>
+              <h3 class="mb-3 font-headline text-xl font-bold tracking-tight uppercase text-[#121314] sm:text-2xl">
+                Galana Seafood
+              </h3>
+              <p class="mb-0 font-body text-sm leading-relaxed text-[#6A6D72]">
+                Belgický špecialista na prémiové plody mora pod značkou Seaboy.
+                Dodávame výberové Black Tiger a Vannamei krevety v úpravách Easy
+                Peel a lúpané s chvostíkom. Šokové IQF mrazenie s minimálnou
+                glazúrou zaručuje plnú, šťavnatú textúru na panvici aj grile.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <div class="flex flex-col justify-between border border-[#121314] bg-[#121314] p-6 text-center text-[#F8F8FA] sm:p-8 sm:text-left lg:col-span-7 lg:p-12">
+          <div class="space-y-5 sm:space-y-6">
+            <span class="block font-headline text-[10px] font-semibold tracking-[0.2em] uppercase text-[#F03E45]">
+              VEĽKOOBCHODNÝ KATALÓG
+            </span>
+            <h3 class="font-headline text-2xl leading-snug font-bold tracking-tight uppercase text-[#F8F8FA] sm:text-3xl lg:text-4xl">
+              Kompletný veľkoobchodný katalóg surovín a technické špecifikácie
+              balení priamo pre vašu kuchyňu.
+            </h3>
+            <p class="mx-auto max-w-xl font-body text-sm leading-relaxed text-[#A0A2A6] sm:mx-0">
+              Stiahnite si prehľad celého nášho sortimentu. 2 strany technických
+              listov, logistických balení, nutričných profilov, správania
+              surovín a garancie chladiaceho reťazca pre šéfkuchárov a nákupcov.
+            </p>
+          </div>
+          <div class="mt-8 flex flex-col items-center justify-between gap-4 border-t border-[#252629] pt-8 sm:mt-10 sm:flex-row sm:items-center sm:pt-10">
+            <a
+              class="inline-flex w-full items-center justify-center gap-2 bg-[#FFFFFF] px-6 py-3.5 text-center font-headline text-xs font-bold tracking-[0.14em] uppercase text-[#121314] no-underline transition-colors hover:bg-[#E5E5E8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto sm:py-3"
+              href="/downloads/passit-velkoobchodny-katalog.pdf"
+              download="passit-velkoobchodny-katalog.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Stiahnuť veľkoobchodný katalóg surovín v PDF (veľkosť 350 kB)"
+            >
+              <svg
+                class="h-4 w-4 text-[#D2232A]"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2.5"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
+              </svg>
+              <span>STIAHNUŤ KATALÓG V PDF</span>
+            </a>
+            <span class="text-center font-mono text-[11px] text-[#A0A2A6] sm:text-left">
+              PDF · 350 kB · 2 strany · Sezóna 2026/2027
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HORECA STANDARDS -->
+  <section class="border-b border-[#E5E5E8] bg-[#F8F8FA]" id="logistika">
+    <div class="mx-auto max-w-[1440px] px-5 py-16 sm:px-6 md:px-16 md:py-24">
+      <div class="mb-10 border-b border-[#E5E5E8] pb-6 md:mb-16 md:pb-8">
+        <span class="mb-2 block font-mono text-[11px] font-semibold tracking-[1.1px] uppercase text-[#D2232A]">
+          Prevádzkové štandardy
+        </span>
+        <h2 class="font-headline text-2xl leading-[1.2] font-bold tracking-tight uppercase text-[#121314] sm:text-4xl sm:leading-[1.18] lg:text-5xl lg:leading-[1.18]">
+          Prečo prevádzky menia dodávateľov za Passit
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 border border-[#E5E5E8] bg-[#FFFFFF] lg:grid-cols-12">
+        <div class="flex flex-col justify-between border-b border-[#E5E5E8] p-6 sm:p-8 lg:col-span-6 lg:border-r lg:border-b-0 lg:p-14">
+          <div class="space-y-5 sm:space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="font-mono text-xs font-bold text-[#D2232A]">
+                LOGISTIKA
+              </span>
+              <span class="font-headline text-[10px] tracking-widest uppercase text-[#6A6D72]">
+                KONTROLOVANÁ TEPLOTA
+              </span>
+            </div>
+            <h3 class="font-headline text-xl font-bold tracking-tight uppercase text-[#121314] sm:text-2xl lg:text-3xl">
+              Priamy závoz bez medzičlánkov
+            </h3>
+            <p class="font-body text-sm leading-relaxed text-[#6A6D72] sm:text-base">
+              Vlastná logistická flotila s aktívnym chladením v predpísanom
+              rozmedzí +2&nbsp;°C až +4&nbsp;°C a mrazený režim -18&nbsp;°C od
+              nakládky až po doručenie priamo do vášho chladiaceho boxu.
+            </p>
+            <div class="space-y-3 pt-2 sm:pt-4">
+              <div class="flex items-start gap-3">
+                <span class="font-mono text-xs font-bold text-[#121314]">
+                  •
+                </span>
+                <span class="font-body text-sm text-[#121314]">
+                  Závozy Bratislava, Trnava, Trenčín, Banská Bystrica a Košice
+                </span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="font-mono text-xs font-bold text-[#121314]">
+                  •
+                </span>
+                <span class="font-body text-sm text-[#121314]">
+                  Garantované termíny bez výpadkov kľúčových talianskych šarží
+                </span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="font-mono text-xs font-bold text-[#121314]">
+                  •
+                </span>
+                <span class="font-body text-sm text-[#121314]">
+                  Možnosť núdzového dovozu do 24 hodín pre zmluvné prevádzky
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col justify-between p-6 sm:p-8 lg:col-span-6 lg:p-14"
+          id="certifikacia"
+        >
+          <div class="space-y-5 sm:space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="font-mono text-xs font-bold text-[#D2232A]">
+                CERTIFIKÁCIA
+              </span>
+              <span class="font-headline text-[10px] tracking-widest uppercase text-[#6A6D72]">
+                D.O.P. &amp; I.G.P. OVERENIE
+              </span>
+            </div>
+            <h3 class="font-headline text-xl font-bold tracking-tight uppercase text-[#121314] sm:text-2xl lg:text-3xl">
+              Originalita šarže
+            </h3>
+            <p class="font-body text-sm leading-relaxed text-[#6A6D72] sm:text-base">
+              100&nbsp;% overiteľné certifikáty pôvodu D.O.P. a I.G.P. Každá
+              paleta a každá šarža disponuje colným a výrobným rodokmeňom, ktorý
+              môžete prezentovať svojim náročným hosťom.
+            </p>
+            <div class="space-y-3 pt-2 sm:pt-4">
+              <div class="flex items-start gap-3">
+                <span class="font-mono text-xs font-bold text-[#121314]">
+                  •
+                </span>
+                <span class="font-body text-sm text-[#121314]">
+                  Priama fakturácia bez sprostredkovateľských marží a
+                  prepisovania šarží
+                </span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="font-mono text-xs font-bold text-[#121314]">
+                  •
+                </span>
+                <span class="font-body text-sm text-[#121314]">
+                  Prístup do B2B klientskeho portálu s kompletnými technickými
+                  listami
+                </span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="font-mono text-xs font-bold text-[#121314]">
+                  •
+                </span>
+                <span class="font-body text-sm text-[#121314]">
+                  Marketingová podpora pre vaše menu (D.O.P. certifikované
+                  značenie)
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- B2B FORM WITH ROSSO IDENTITA SUBMIT BUTTON -->
+  <section
+    class="border-b border-[#E5E5E8] bg-[#121314] text-[#F8F8FA]"
+    id="alokacia"
+  >
+    <div class="mx-auto max-w-[1440px] px-5 py-16 sm:px-6 md:px-16 md:py-20">
+      <div class="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-12">
+        <div class="space-y-6 text-center lg:col-span-5 lg:text-left">
+          <span class="block font-headline text-[10px] font-semibold tracking-[0.2em] uppercase text-[#F03E45]">
+            ZÍSKAJTE VEĽKOOBCHODNÝ CENNÍK
+          </span>
+          <h2 class="font-headline text-2xl leading-[1.2] font-bold tracking-tight uppercase text-[#F8F8FA] sm:text-4xl sm:leading-[1.18]">
+            Vyžiadajte si veľkoobchodný cenník
+          </h2>
+          <p class="mx-auto max-w-xl font-body text-sm leading-relaxed text-[#A0A2A6] lg:mx-0">
+            Zadajte parametre vašej gastro prevádzky alebo dopytované suroviny.
+            Náš obchodný zástupca vás bude obratom kontaktovať s oficiálnym
+            veľkoobchodným cenníkom a podmienkami pravidelných závozov.
+          </p>
+
+          <!-- Kontaktné údaje: na desktope v ľavom stĺpci, na mobile skryté (pretože sú hneď pod formulárom v pätičke a nepletú sa nad vstupné polia) -->
+          <div class="hidden grid-cols-1 gap-4 border-t border-[#252629] pt-6 sm:grid-cols-2 lg:grid lg:grid-cols-1">
+            <div>
+              <span class="block font-headline text-[10px] tracking-widest uppercase text-[#8E9094]">
+                E-MAIL
+              </span>
+              <a
+                class="mt-1 block font-headline text-sm font-medium text-[#F8F8FA] transition-colors hover:text-[#F03E45]"
+                href={`mailto:${siteConfig.email}`}
+              >
+                {siteConfig.email}
+              </a>
+            </div>
+            <div>
+              <span class="block font-headline text-[10px] tracking-widest uppercase text-[#8E9094]">
+                TELEFÓN
+              </span>
+              <a
+                href={`tel:${siteConfig.phone}`}
+                class="mt-1 block font-mono text-sm font-medium text-[#F8F8FA] no-underline transition-colors hover:text-[#F03E45]"
+              >
+                {siteConfig.phoneDisplay}
+              </a>
+            </div>
+            <div>
+              <span class="block font-headline text-[10px] tracking-widest uppercase text-[#8E9094]">
+                ADRESA A SÍDLO
+              </span>
+              <span class="mt-1 block font-headline text-sm font-medium text-[#F8F8FA]">
+                {siteConfig.street}, {siteConfig.zip} {siteConfig.city}
+              </span>
+            </div>
+            <div>
+              <span class="block font-headline text-[10px] tracking-widest uppercase text-[#8E9094]">
+                IČO
+              </span>
+              <span class="mt-1 block font-mono text-sm font-medium text-[#F8F8FA]">
+                {siteConfig.ico}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-[#252629] bg-[#17181A] p-6 sm:p-8 md:p-10 lg:col-span-7">
+          <form class="space-y-6" action="#alokacia" method="get">
+            <div class="space-y-6">
+              <div>
+                <label
+                  for="inquiry-name-company"
+                  class="mb-2 block font-headline text-[11px] font-bold tracking-widest uppercase text-[#C5C6C9]"
+                >
+                  MENO A NÁZOV PREVÁDZKY *
+                </label>
+                <input
+                  id="inquiry-name-company"
+                  name="nameCompany"
+                  class="w-full border border-[#313338] bg-[#1F2022] px-4 py-3.5 text-base text-[#F8F8FA] placeholder-[#8E9094] focus:border-[#D2232A] focus:outline-none sm:text-sm"
+                  placeholder="napr. Tomáš Horváth, Pizzeria Napoli"
+                  required
+                  type="text"
+                />
+              </div>
+
+              <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                <div>
+                  <label
+                    for="inquiry-email"
+                    class="mb-2 block font-headline text-[11px] font-bold tracking-widest uppercase text-[#C5C6C9]"
+                  >
+                    E-MAILOVÁ ADRESA *
+                  </label>
+                  <input
+                    id="inquiry-email"
+                    name="email"
+                    class="w-full border border-[#313338] bg-[#1F2022] px-4 py-3.5 text-base text-[#F8F8FA] placeholder-[#8E9094] focus:border-[#D2232A] focus:outline-none sm:text-sm"
+                    placeholder="vasa@prevadzka.sk"
+                    required
+                    type="email"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="inquiry-phone"
+                    class="mb-2 block font-headline text-[11px] font-bold tracking-widest uppercase text-[#C5C6C9]"
+                  >
+                    TELEFÓNNE ČÍSLO *
+                  </label>
+                  <input
+                    id="inquiry-phone"
+                    name="phone"
+                    class="w-full border border-[#313338] bg-[#1F2022] px-4 py-3.5 text-base text-[#F8F8FA] placeholder-[#8E9094] focus:border-[#D2232A] focus:outline-none sm:text-sm"
+                    placeholder="+421 900 000 000"
+                    required
+                    type="tel"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  for="inquiry-message"
+                  class="mb-2 block font-headline text-[11px] font-bold tracking-widest uppercase text-[#C5C6C9]"
+                >
+                  DOPYTOVANÉ SUROVINY ALEBO SPRÁVA
+                </label>
+                <textarea
+                  id="inquiry-message"
+                  name="message"
+                  class="min-h-[90px] w-full resize-y border border-[#313338] bg-[#1F2022] px-4 py-3 text-base text-[#F8F8FA] placeholder-[#8E9094] focus:border-[#D2232A] focus:outline-none sm:text-sm"
+                  placeholder="napr. Múka Le 5 Stagioni (25 kg), Mozzarella Valcolatte, krevety Galana..."
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div class="space-y-4 border-t border-[#252629] pt-2">
+                <p class="font-body text-xs leading-relaxed text-[#8E9094]">
+                  Odoslaním formulára beriete na vedomie spracovanie osobných
+                  údajov na účel vybavenia B2B dopytu v súlade s platnou
+                  legislatívou.
+                </p>
+                <button
+                  class="flex w-full items-center justify-center bg-[#D2232A] px-6 py-4 text-center font-headline text-xs font-bold tracking-[0.08em] uppercase text-[#FFFFFF] transition-all hover:bg-[#b51d23] active:translate-y-[1px]"
+                  type="submit"
+                >
+                  ODOSLAŤ NEZÁVÄZNÝ DOPYT
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>
