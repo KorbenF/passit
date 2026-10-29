@@ -46,7 +46,11 @@ const formattedTitle = title.includes('Passit') ? title : `${title} | Passit`;
   <body class="flex min-h-screen flex-col bg-[#F8F8FA] font-body text-[#121314] selection:bg-[#121314] selection:text-[#F8F8FA]">
     <SkipLink targetId="main-content" />
     <slot name="header" />
-    <main id="main-content" class="flex-grow focus:outline-none" tabindex="-1">
+    <main
+      id="main-content"
+      class="flex-grow pt-16 md:pt-20 focus:outline-none"
+      tabindex="-1"
+    >
       <slot />
     </main>
     <slot name="footer" />

@@ -31,8 +31,36 @@ import simoniniLogo from '../assets/images/partners/simonini.svg';
       </div>
 
       <!-- 12-Column Hero Matrix -->
-      <div class="grid grid-cols-1 items-start gap-8 border-t border-[#E5E5E8] pt-6 lg:grid-cols-12">
-        <div class="flex h-full flex-col justify-between space-y-6 sm:space-y-8 pr-0 lg:col-span-5 lg:pr-8">
+      <div class="grid grid-cols-1 items-start gap-6 border-t border-[#E5E5E8] pt-6 lg:grid-cols-12 lg:gap-8">
+        <!-- Visual Hero Pizza: na mobile sa zobrazuje HNEĎ pod headline, na desktope vpravo -->
+        <div class="lg:col-span-7 lg:order-2">
+          <div class="border border-[#E5E5E8] bg-[#FFFFFF] p-1.5 sm:p-2">
+            <div class="overflow-hidden bg-[#121314]">
+              <Image
+                alt="Mozzarella di Bufala a San Marzano D.O.P. na neapolskej pizzi"
+                src={heroPizzaImg}
+                width={512}
+                height={342}
+                format="webp"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                class="block aspect-[16/10] h-auto w-full object-cover transition-all duration-700"
+              />
+            </div>
+            <div class="flex flex-col items-start justify-between gap-1 border-t border-[#E5E5E8] bg-[#FFFFFF] px-3 py-2 sm:flex-row sm:items-center sm:px-4 sm:py-3">
+              <span class="font-headline text-[9px] font-medium tracking-[0.12em] uppercase text-[#121314] sm:text-[10px] sm:tracking-[0.14em]">
+                CAMPANIA · NEAPOL | AUTENTICKÁ PIZZA NAPOLETANA
+              </span>
+              <span class="font-mono text-[9px] text-[#6A6D72] sm:text-[10px]">
+                REF. 40.8518° N, 14.2681° E
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text a CTA: na mobile pod pizzou, na desktope vľavo -->
+        <div class="flex h-full flex-col justify-between space-y-6 sm:space-y-8 pr-0 lg:col-span-5 lg:order-1 lg:pr-8">
           <div class="space-y-4 md:space-y-6">
             <span class="block font-mono text-[11px] font-semibold tracking-widest uppercase text-[#D2232A]">
               GARANTOVANÝ PÔVOD ZO ZDROJA
@@ -54,7 +82,7 @@ import simoniniLogo from '../assets/images/partners/simonini.svg';
                 class="inline-flex w-full items-center justify-center bg-[#D2232A] px-5 py-3.5 text-center font-headline text-xs font-bold tracking-[0.06em] uppercase text-[#FCF8F8] no-underline transition-all hover:bg-[#b51d23] active:translate-y-[1px] sm:w-auto sm:px-7 sm:py-4 sm:text-[13px] sm:whitespace-nowrap"
                 href="#alokacia"
               >
-                VYŽIADAŤ VEĽKOOBCHODNÝ CENNÍK →
+                VYŽIADAŤ VEĽKOOBCHODNÝ CENNÍK
               </a>
               <a
                 class="inline-flex w-full items-center justify-center py-2 text-center font-headline text-xs font-medium text-[#6A6D72] no-underline transition-colors hover:text-[#121314] sm:w-auto sm:border sm:border-[#121314] sm:bg-transparent sm:px-6 sm:py-4 sm:font-semibold sm:text-[#121314] sm:hover:bg-[#121314] sm:hover:text-[#F8F8FA] sm:text-[13px] sm:whitespace-nowrap"
@@ -80,32 +108,6 @@ import simoniniLogo from '../assets/images/partners/simonini.svg';
               </span>
               <span class="mt-1 block font-headline text-xs font-semibold text-[#121314] sm:text-base">
                 D.O.P. &amp; I.G.P. Garancia
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="lg:col-span-7">
-          <div class="border border-[#E5E5E8] bg-[#FFFFFF] p-1.5 sm:p-2">
-            <div class="overflow-hidden bg-[#121314]">
-              <Image
-                alt="Mozzarella di Bufala a San Marzano D.O.P. na neapolskej pizzi"
-                src={heroPizzaImg}
-                width={512}
-                height={342}
-                format="webp"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-                class="block aspect-[16/10] h-auto w-full object-cover transition-all duration-700"
-              />
-            </div>
-            <div class="flex flex-col items-start justify-between gap-1 border-t border-[#E5E5E8] bg-[#FFFFFF] px-3 py-2 sm:flex-row sm:items-center sm:px-4 sm:py-3">
-              <span class="font-headline text-[9px] font-medium tracking-[0.12em] uppercase text-[#121314] sm:text-[10px] sm:tracking-[0.14em]">
-                CAMPANIA · NEAPOL | AUTENTICKÁ PIZZA NAPOLETANA
-              </span>
-              <span class="font-mono text-[9px] text-[#6A6D72] sm:text-[10px]">
-                REF. 40.8518° N, 14.2681° E
               </span>
             </div>
           </div>
@@ -345,7 +347,7 @@ import simoniniLogo from '../assets/images/partners/simonini.svg';
           </div>
         </article>
 
-        <div class="flex flex-col justify-between border border-[#121314] bg-[#121314] p-6 text-[#F8F8FA] sm:p-8 lg:col-span-7 lg:p-12">
+        <div class="flex flex-col justify-between border border-[#121314] bg-[#121314] p-6 text-center text-[#F8F8FA] sm:p-8 sm:text-left lg:col-span-7 lg:p-12">
           <div class="space-y-5 sm:space-y-6">
             <span class="block font-headline text-[10px] font-semibold tracking-[0.2em] uppercase text-[#F03E45]">
               VEĽKOOBCHODNÝ KATALÓG
@@ -354,13 +356,13 @@ import simoniniLogo from '../assets/images/partners/simonini.svg';
               Kompletný veľkoobchodný katalóg surovín a technické špecifikácie
               balení priamo pre vašu kuchyňu.
             </h3>
-            <p class="max-w-xl font-body text-sm leading-relaxed text-[#A0A2A6]">
+            <p class="mx-auto max-w-xl font-body text-sm leading-relaxed text-[#A0A2A6] sm:mx-0">
               Stiahnite si prehľad celého nášho sortimentu. 2 strany technických
               listov, logistických balení, nutričných profilov, správania
               surovín a garancie chladiaceho reťazca pre šéfkuchárov a nákupcov.
             </p>
           </div>
-          <div class="mt-8 flex flex-col items-start justify-between gap-4 border-t border-[#252629] pt-8 sm:mt-10 sm:flex-row sm:items-center sm:pt-10">
+          <div class="mt-8 flex flex-col items-center justify-between gap-4 border-t border-[#252629] pt-8 sm:mt-10 sm:flex-row sm:items-center sm:pt-10">
             <a
               class="inline-flex w-full items-center justify-center gap-2 bg-[#FFFFFF] px-6 py-3.5 text-center font-headline text-xs font-bold tracking-[0.14em] uppercase text-[#121314] no-underline transition-colors hover:bg-[#E5E5E8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto sm:py-3"
               href="/downloads/passit-velkoobchodny-katalog.pdf"
@@ -385,7 +387,7 @@ import simoniniLogo from '../assets/images/partners/simonini.svg';
               </svg>
               <span>STIAHNUŤ KATALÓG V PDF</span>
             </a>
-            <span class="font-mono text-[11px] text-[#A0A2A6]">
+            <span class="text-center font-mono text-[11px] text-[#A0A2A6] sm:text-left">
               PDF · 350 kB · 2 strany · Sezóna 2026/2027
             </span>
           </div>
@@ -517,20 +519,21 @@ import simoniniLogo from '../assets/images/partners/simonini.svg';
   >
     <div class="mx-auto max-w-[1440px] px-5 py-16 sm:px-6 md:px-16 md:py-20">
       <div class="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-12">
-        <div class="space-y-6 lg:col-span-5">
+        <div class="space-y-6 text-center lg:col-span-5 lg:text-left">
           <span class="block font-headline text-[10px] font-semibold tracking-[0.2em] uppercase text-[#F03E45]">
             ZÍSKAJTE VEĽKOOBCHODNÝ CENNÍK
           </span>
           <h2 class="font-headline text-2xl leading-[1.2] font-bold tracking-tight uppercase text-[#F8F8FA] sm:text-4xl sm:leading-[1.18]">
             Vyžiadajte si veľkoobchodný cenník
           </h2>
-          <p class="font-body text-sm leading-relaxed text-[#A0A2A6]">
+          <p class="mx-auto max-w-xl font-body text-sm leading-relaxed text-[#A0A2A6] lg:mx-0">
             Zadajte parametre vašej gastro prevádzky alebo dopytované suroviny.
             Náš obchodný zástupca vás bude obratom kontaktovať s oficiálnym
             veľkoobchodným cenníkom a podmienkami pravidelných závozov.
           </p>
 
-          <div class="grid grid-cols-1 gap-4 border-t border-[#252629] pt-6 sm:grid-cols-2 lg:grid-cols-1">
+          <!-- Kontaktné údaje: na desktope v ľavom stĺpci, na mobile skryté (pretože sú hneď pod formulárom v pätičke a nepletú sa nad vstupné polia) -->
+          <div class="hidden grid-cols-1 gap-4 border-t border-[#252629] pt-6 sm:grid-cols-2 lg:grid lg:grid-cols-1">
             <div>
               <span class="block font-headline text-[10px] tracking-widest uppercase text-[#8E9094]">
                 E-MAIL
@@ -650,10 +653,10 @@ import simoniniLogo from '../assets/images/partners/simonini.svg';
                   legislatívou.
                 </p>
                 <button
-                  class="flex w-full items-center justify-center gap-2 bg-[#D2232A] px-6 py-4 text-center font-headline text-xs font-bold tracking-[0.08em] uppercase text-[#FFFFFF] transition-all hover:bg-[#b51d23] active:translate-y-[1px]"
+                  class="flex w-full items-center justify-center bg-[#D2232A] px-6 py-4 text-center font-headline text-xs font-bold tracking-[0.08em] uppercase text-[#FFFFFF] transition-all hover:bg-[#b51d23] active:translate-y-[1px]"
                   type="submit"
                 >
-                  ODOSLAŤ NEZÁVÄZNÝ DOPYT →
+                  ODOSLAŤ NEZÁVÄZNÝ DOPYT
                 </button>
               </div>
             </div>

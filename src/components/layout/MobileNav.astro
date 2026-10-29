@@ -8,137 +8,49 @@ interface Props {
 const { currentPath = '/' } = Astro.props;
 
 const navLinks = [
-  {
-    href: '/#sortiment',
-    number: '01',
-    label: 'Katalóg',
-    fullName: 'Katalóg surovín',
-    detail: 'Múky Tipo 00, čerstvá mozzarella, morské plody',
-  },
-  {
-    href: '/#partneri',
-    number: '02',
-    label: 'Partneri',
-    fullName: 'Oficiálni partneri',
-    detail: 'Valcolatte, Coati, Galana Seafood, Le 5 Stagioni',
-  },
-  {
-    href: '/#logistika',
-    number: '03',
-    label: 'O nás',
-    fullName: 'Prevádzkové štandardy',
-    detail: 'Chladený reťazec +2 °C až +4 °C & D.O.P. garancia',
-  },
-  {
-    href: '/#partnerstvo',
-    number: '04',
-    label: 'Kontakt',
-    fullName: 'B2B kontakt & dopyt',
-    detail: 'Priamy import pre pizzerie a reštaurácie',
-  },
+  { href: '/#sortiment', label: 'Katalóg' },
+  { href: '/#partneri', label: 'Partneri' },
+  { href: '/#logistika', label: 'O nás' },
+  { href: '/#partnerstvo', label: 'Kontakt' },
 ];
 ---
 
 <!-- Backdrop pre mobilné menu pod hlavičkou -->
 <div
   id="mobile-nav-backdrop"
-  class="fixed inset-x-0 top-16 bottom-0 z-40 hidden bg-[#121314]/40 backdrop-blur-[2px] transition-opacity duration-300 md:hidden"
+  class="touch-none fixed inset-0 top-16 z-40 hidden bg-[#121314]/40 backdrop-blur-[2px] transition-opacity duration-300 md:hidden"
   tabindex="-1"
   aria-hidden="true"
 ></div>
 
-<!-- Mobilné menu (Full-screen editorial curtain priamo pod hlavičkou) -->
+<!-- Mobilné menu (Čisté, kompaktné priamo pod hlavičkou bez nutnosti scrollovania) -->
 <div
   id="mobile-nav-drawer"
   role="dialog"
   aria-modal="true"
   aria-label="Mobilná navigácia"
-  class="fixed inset-x-0 top-16 bottom-0 z-40 hidden flex flex-col justify-between overflow-y-auto border-t border-[#E5E5E8] bg-[#FCF8F8] shadow-2xl transition-all duration-300 md:hidden"
+  class="overscroll-contain fixed inset-x-0 top-16 z-40 hidden flex-col border-b border-[#E5E5E8] bg-[#FCF8F8] shadow-2xl transition-all duration-300 md:hidden"
 >
   <div class="flex flex-col">
-    <!-- Sub-header bar s informáciou o distribúcii -->
-    <div class="flex items-center justify-between border-b border-[#E5E5E8] bg-[#F8F8FA] px-5 py-3">
-      <span class="font-mono text-[10px] font-semibold tracking-widest uppercase text-[#D2232A]">
-        B2B GASTRO DISTRIBÚCIA
-      </span>
-      <span class="font-mono text-[10px] text-[#6A6D72]">
-        SLOVENSKO · TÝŽDENNÉ ZÁVOZY
-      </span>
-    </div>
-
-    <!-- Hlavné navigačné položky s talianskym číslovaním a čistou typografiou -->
-    <nav aria-label="Mobilné navigačné odkazy" class="flex flex-col">
+    <!-- Hlavné navigačné položky: čisté bez balastu -->
+    <nav aria-label="Mobilné navigačné odkazy" class="flex flex-col px-5 pt-2">
       {navLinks.map((link) => {
         const isActive = link.href === currentPath;
         return (
           <a
             href={link.href}
-            aria-label={link.label}
             aria-current={isActive ? 'page' : undefined}
-            class="group flex items-center justify-between border-b border-[#E5E5E8] px-5 py-4 transition-colors hover:bg-[#FFFFFF] active:bg-[#FFFFFF] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+            class="flex items-center justify-between border-b border-[#E5E5E8] py-4 font-headline text-base font-bold tracking-[0.06em] uppercase text-[#121314] transition-colors hover:text-[#D2232A] active:text-[#D2232A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
           >
-            <div class="flex flex-col pr-4">
-              <div class="flex items-baseline gap-3">
-                <span class="font-mono text-xs font-bold text-[#D2232A]">
-                  {link.number}
-                </span>
-                <span class="font-headline text-base font-bold tracking-tight uppercase text-[#121314] transition-colors group-hover:text-[#D2232A]">
-                  {link.fullName}
-                </span>
-              </div>
-              <span class="mt-0.5 pl-7 font-body text-xs text-[#6A6D72]">
-                {link.detail}
-              </span>
-            </div>
-            <span
-              class="font-mono text-sm font-bold text-[#8E9094] transition-transform duration-200 group-hover:translate-x-1 group-hover:text-[#D2232A]"
-              aria-hidden="true"
-            >
-              →
-            </span>
+            <span>{link.label}</span>
           </a>
         );
       })}
     </nav>
-  </div>
 
-  <!-- B2B spodná sekcia s priamymi krokmi pre gastro manažérov -->
-  <div class="border-t border-[#E5E5E8] bg-[#FFFFFF] p-5">
-    <div class="space-y-3.5">
-      <a
-        href="/#alokacia"
-        class="flex w-full items-center justify-center gap-2 bg-[#D2232A] px-5 py-3.5 text-center font-headline text-xs font-bold tracking-[0.1em] uppercase text-[#FCF8F8] no-underline transition-all hover:bg-[#b51d23] active:translate-y-[1px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
-      >
-        <span>VYŽIADAŤ VEĽKOOBCHODNÝ CENNÍK</span>
-        <span aria-hidden="true">→</span>
-      </a>
-
-      <a
-        href="/downloads/passit-velkoobchodny-katalog.pdf"
-        download="passit-velkoobchodny-katalog.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Stiahnuť sortiment v PDF (veľkosť 350 kB)"
-        class="flex w-full items-center justify-center gap-2 border border-[#121314] bg-transparent px-4 py-2.5 text-center font-headline text-[11px] font-bold tracking-[0.08em] uppercase text-[#121314] no-underline transition-colors hover:bg-[#121314] hover:text-[#FFFFFF] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
-      >
-        <svg
-          class="h-4 w-4 text-[#D2232A]"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2.5"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-          ></path>
-        </svg>
-        <span>STIAHNUŤ SORTIMENT V PDF (350 kB)</span>
-      </a>
-
-      <div class="grid grid-cols-2 gap-3 border-t border-[#E5E5E8] pt-3.5 font-mono text-xs">
+    <!-- Priamy kontakt -->
+    <div class="px-5 py-4">
+      <div class="grid grid-cols-2 gap-3 font-mono text-xs">
         <div>
           <span class="block text-[10px] tracking-widest uppercase text-[#6A6D72]">
             TELEFÓN

@@ -14,6 +14,9 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      allowedHosts: true,
+    },
     build: {
       assetsInlineLimit: 0,
     },
