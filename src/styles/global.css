@@ -105,6 +105,8 @@
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     tab-size: 4;
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
   }
 
   body {
@@ -117,5 +119,42 @@
   :focus-visible {
     outline: 2px solid var(--color-focus);
     outline-offset: 2px;
+  }
+}
+
+/* Editorial kinetic headline reveal */
+@keyframes heroReveal {
+  0% {
+    transform: translateY(105%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.hero-reveal-line-1 {
+  display: block;
+  animation: heroReveal 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform;
+}
+
+.hero-reveal-line-2 {
+  display: block;
+  animation: heroReveal 1.05s cubic-bezier(0.16, 1, 0.3, 1) 0.14s both;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-reveal-line-1,
+  .hero-reveal-line-2 {
+    animation: none;
+    transform: none;
+    opacity: 1;
+    will-change: auto;
   }
 }

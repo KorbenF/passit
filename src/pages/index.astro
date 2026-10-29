@@ -19,13 +19,17 @@ import simoniniLogo from '../assets/images/partners/simonini.svg';
 >
   <!-- HERO SECTION -->
   <section class="border-[#E5E5E8] bg-[#F8F8FA]">
-    <div class="mx-auto max-w-[1440px] px-5 pt-10 pb-14 sm:px-6 md:px-16 md:pt-16 md:pb-20">
+    <div class="mx-auto max-w-[1440px] px-5 pt-10 pb-0 sm:px-6 md:px-16 md:pt-16 md:pb-0">
       <!-- Headline -->
       <div class="mb-8 md:mb-14">
         <h1 class="font-headline text-[clamp(1.75rem,7.2vw,3.5rem)] leading-[1.18] font-bold tracking-[-0.035em] uppercase text-[#121314] sm:text-6xl sm:leading-[1.15] md:text-7xl md:leading-[1.12] lg:text-[5.5rem] lg:leading-[1.1]">
-          <span class="block">AUTENTICKÝ PÔVOD.</span>
-          <span class="mt-2 block text-[#6A6D72] md:mt-4 md:pl-[28%] lg:pl-[33%]">
-            NEKOMPROMISNÁ ČERSTVOSŤ.
+          <span class="block overflow-hidden pt-1 pb-1.5 -mt-1 -mb-1.5">
+            <span class="hero-reveal-line-1">AUTENTICKÝ PÔVOD.</span>
+          </span>
+          <span class="mt-2 block overflow-hidden pt-1 pb-1.5 -mt-1 -mb-1.5 md:mt-4 md:pl-[28%] lg:pl-[33%]">
+            <span class="hero-reveal-line-2 text-[#6A6D72]">
+              NEKOMPROMISNÁ ČERSTVOSŤ.
+            </span>
           </span>
         </h1>
       </div>
@@ -118,7 +122,7 @@ import simoniniLogo from '../assets/images/partners/simonini.svg';
 
   <!-- PARTNER MATRIX -->
   <section class="border-b border-[#E5E5E8] bg-[#F8F8FA]" id="partneri">
-    <div class="mx-auto flex max-w-[1440px] flex-col justify-between gap-4 px-5 pt-14 pb-8 sm:px-6 md:flex-row md:items-end md:gap-6 md:px-12 md:pt-20 md:pb-10">
+    <div class="mx-auto flex max-w-[1440px] flex-col justify-between gap-4 px-5 pt-12 pb-8 sm:px-6 md:flex-row md:items-end md:gap-6 md:px-16 md:pt-16 md:pb-10">
       <div>
         <span class="block font-mono text-[11px] font-semibold tracking-widest uppercase text-[#D2232A]">
           ZASTÚPENIA VÝROBCOV
@@ -367,13 +371,34 @@ import simoniniLogo from '../assets/images/partners/simonini.svg';
               nákupcov.
             </p>
           </div>
-          <div class="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[#252629] pt-8 sm:mt-10 sm:pt-10">
+          <div class="mt-8 flex flex-col items-start justify-between gap-4 border-t border-[#252629] pt-8 sm:mt-10 sm:flex-row sm:items-center sm:pt-10">
             <a
-              class="inline-flex w-full items-center justify-center bg-[#FFFFFF] px-5 py-3 text-center font-headline text-[10px] font-bold tracking-[0.16em] uppercase text-[#121314] whitespace-nowrap transition-colors hover:bg-[#E5E5E8] sm:w-auto sm:py-2.5"
-              href="#alokacia"
+              class="inline-flex w-full items-center justify-center gap-2 bg-[#FFFFFF] px-6 py-3.5 text-center font-headline text-xs font-bold tracking-[0.14em] uppercase text-[#121314] no-underline transition-colors hover:bg-[#E5E5E8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto sm:py-3"
+              href="/downloads/passit-velkoobchodny-katalog.pdf"
+              download="passit-velkoobchodny-katalog.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Stiahnuť veľkoobchodný katalóg surovín v PDF (veľkosť 350 kB)"
             >
-              STIAHNUŤ KATALÓG V PDF ↓
+              <svg
+                class="h-4 w-4 text-[#D2232A]"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2.5"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
+              </svg>
+              <span>STIAHNUŤ KATALÓG V PDF</span>
             </a>
+            <span class="font-mono text-[11px] text-[#A0A2A6]">
+              PDF · 350 kB · 2 strany · Sezóna 2026/2027
+            </span>
           </div>
         </div>
       </div>

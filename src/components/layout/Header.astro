@@ -1,8 +1,7 @@
 ---
-import { Image } from 'astro:assets';
 import MobileNav from './MobileNav.astro';
+import Logo from '../ui/Logo.astro';
 import { siteConfig } from '../../lib/site';
-import logoSvg from '../../assets/images/logo.svg';
 
 interface Props {
   currentPath?: string;
@@ -26,15 +25,7 @@ const navLinks = [
       href="/"
       aria-label={`${siteConfig.name} - Domov`}
     >
-      <Image
-        alt="Passit"
-        src={logoSvg}
-        width={30}
-        height={30}
-        loading="eager"
-        decoding="async"
-        class="block h-[28px] w-[28px] object-contain transition-transform duration-200 group-hover:scale-105 md:h-[30px] md:w-[30px]"
-      />
+      <Logo class="transition-transform duration-200 group-hover:scale-105" />
       <span class="inline-block font-headline text-[19px] font-bold leading-none tracking-[-0.02em] text-[#D2232A] md:text-[21px]">
         PASSIT
       </span>

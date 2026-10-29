@@ -1,5 +1,7 @@
 ---
 import SkipLink from '../components/ui/SkipLink.astro';
+import fontSansLatinExt from '@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-ext-wght-normal.woff2?url';
+import fontSansLatin from '@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-normal.woff2?url';
 import '../styles/global.css';
 
 interface Props {
@@ -23,6 +25,20 @@ const formattedTitle = title.includes('Passit') ? title : `${title} | Passit`;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="preload"
+      href={fontSansLatinExt}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href={fontSansLatin}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{formattedTitle}</title>
     <meta name="description" content={description} />
