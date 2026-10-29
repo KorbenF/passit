@@ -155,3 +155,46 @@
     transition: none;
   }
 }
+
+/* Editorial kinetic headline reveal */
+@keyframes heroReveal {
+  0% {
+    transform: translate3d(0, 105%, 0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.hero-reveal-line-1 {
+  display: inline-block;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  animation: heroReveal 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform;
+}
+
+.hero-reveal-line-2 {
+  display: inline-block;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  animation: heroReveal 1.05s cubic-bezier(0.16, 1, 0.3, 1) 0.14s both;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-reveal-line-1,
+  .hero-reveal-line-2 {
+    animation: none;
+    transform: none;
+    opacity: 1;
+    will-change: auto;
+  }
+}
