@@ -24,6 +24,7 @@ coverage/
 test-results/
 playwright-report/
 .lighthouseci/
+tests/e2e/screenshots/mobile-*.png
 
 # Cloudflare Wrangler local state
 .wrangler/

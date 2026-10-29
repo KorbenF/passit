@@ -43,6 +43,16 @@ test.describe('Layout & Navigation', () => {
         );
       });
       expect(hasOverflow).toBe(false);
+
+      if (width === 375) {
+        await page.screenshot({
+          path: './tests/e2e/screenshots/mobile-viewport.png',
+        });
+        await page.screenshot({
+          path: './tests/e2e/screenshots/mobile-fullpage.png',
+          fullPage: true,
+        });
+      }
     }
 
     // Open mobile drawer and click an anchor link -> drawer must close automatically
