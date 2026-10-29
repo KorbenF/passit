@@ -57,7 +57,7 @@ const navLinks = [
     </a>
   </div>
 
-  <!-- Mobilné ovládanie (rýchle CTA + hamburger) -->
+  <!-- Mobilné ovládanie (rýchle CTA + animovaný hamburger do krížika) -->
   <div class="flex items-center gap-2.5 md:hidden">
     <a
       href="/#alokacia"
@@ -71,22 +71,13 @@ const navLinks = [
       aria-expanded="false"
       aria-controls="mobile-nav-drawer"
       aria-label="Otvoriť navigáciu"
-      class="inline-flex min-h-[44px] min-w-[44px] items-center justify-center border border-[#E5E5E8] bg-[#FFFFFF] text-[#121314] hover:border-[#121314] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+      class="inline-flex min-h-[44px] min-w-[44px] items-center justify-center border border-[#E5E5E8] bg-[#FFFFFF] text-[#121314] transition-colors hover:border-[#121314] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
     >
-      <svg
-        class="h-5 w-5"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.75"
-        stroke="currentColor"
-        aria-hidden="true"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-        ></path>
-      </svg>
+      <span class="relative block h-5 w-5" aria-hidden="true">
+        <span class="hamburger-line line-1 absolute left-0 block h-[2px] w-5 rounded-full bg-[#121314] origin-center transition-all duration-300 ease-in-out"></span>
+        <span class="hamburger-line line-2 absolute left-0 block h-[2px] w-5 rounded-full bg-[#121314] origin-center transition-all duration-200 ease-in-out"></span>
+        <span class="hamburger-line line-3 absolute left-0 block h-[2px] w-5 rounded-full bg-[#121314] origin-center transition-all duration-300 ease-in-out"></span>
+      </span>
     </button>
   </div>
 </header>

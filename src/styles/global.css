@@ -121,3 +121,37 @@
     outline-offset: 2px;
   }
 }
+
+/* Animated Hamburger to Cross */
+#mobile-nav-toggle .line-1 {
+  top: 3px;
+}
+
+#mobile-nav-toggle .line-2 {
+  top: 9px;
+}
+
+#mobile-nav-toggle .line-3 {
+  top: 15px;
+}
+
+#mobile-nav-toggle[aria-expanded='true'] .line-1 {
+  top: 9px;
+  transform: rotate(45deg);
+}
+
+#mobile-nav-toggle[aria-expanded='true'] .line-2 {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+#mobile-nav-toggle[aria-expanded='true'] .line-3 {
+  top: 9px;
+  transform: rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #mobile-nav-toggle .hamburger-line {
+    transition: none;
+  }
+}

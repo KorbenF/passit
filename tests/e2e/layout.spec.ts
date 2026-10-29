@@ -62,6 +62,10 @@ test.describe('Layout & Navigation', () => {
 
     await toggleBtn.click();
     await expect(drawer).toBeVisible();
+    await page.waitForTimeout(350);
+    await page.screenshot({
+      path: './tests/e2e/screenshots/mobile-menu-open.png',
+    });
 
     await drawer.getByRole('link', { name: 'Katalóg' }).click();
     await expect(drawer).toBeHidden();
